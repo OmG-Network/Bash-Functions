@@ -1,16 +1,17 @@
 function check_arch ()
 {
 if [ -x /usr/bin/arch ]; then
+        CPU_ARCH=$(/usr/bin/arch)
     # Check x64
-        if [ $(/usr/bin/arch) == "x86_64" ]; then
+        if [ $CPU_ARCH == "x86_64" ]; then
             echo "Supported"
         fi
     # Check x86
-        if [ $(/usr/bin/arch) == "x86" ]; then
+        if [ $CPU_ARCH == "x86" ]; then
             echo "Not Supported"
         fi
     # Check ARM7
-        if [ $(/usr/bin/arch) == "armv71" ]; then
+        if [ $CPU_ARCH == "armv71" ]; then
             echo "Supported"
         fi
 else
